@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "141014086790",
+    "firebase_url": "https://contact-card-1407e.firebaseio.com",
+    "project_id": "contact-card-1407e",
+    "storage_bucket": "contact-card-1407e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141014086790:android:98232b592d1f42579c4d07",
+        "android_client_info": {
+          "package_name": "com.devtechhub.contact_card"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141014086790-1h5051uor0nsu4d4j23dl60ptkbl7thu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-FYOA6o2pNMSogLbybpFYkrfeAT9pPA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141014086790-1h5051uor0nsu4d4j23dl60ptkbl7thu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
