@@ -26,6 +26,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     super.dispose();
   }
 
+  void navigationTapped(int tab){
+    _pageController.animateToPage(tab, duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+  }
+
   void onPageChanged(int tab){
     setState(() {
       this._currentTabIndex = tab;
@@ -66,11 +70,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           items: _kBottomNavigationBarItems,
           currentIndex: _currentTabIndex,
           type: BottomNavigationBarType.fixed,
-          onTap: (index){
-            setState(() {
-              _currentTabIndex = index;
-            });
-          },
+          onTap: navigationTapped,
         ),
       ),
     );

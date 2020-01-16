@@ -11,7 +11,7 @@ class ContactCardIcon extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Material(
         child: Padding(
-          padding: const EdgeInsets.only(left: 5.0, right: 5.0),
+          padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 2.5, bottom: 2.5),
           child: Icon(icon, size: 30.0,),
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),

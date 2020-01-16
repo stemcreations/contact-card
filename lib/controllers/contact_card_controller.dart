@@ -24,58 +24,59 @@ class ContactCardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: SizedBox(
-        height: 200.0,
-        width: 320.0,
-        child: Container(
-          child: Stack(
-            children: [
-              Card(
-                margin: EdgeInsets.only(top: 20.0, left: 20.0,),
-                elevation: 5.0,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                child: Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(image: NetworkImage('http://media02.hongkiat.com/free-businesscard-templates/10-Front.jpg')), //TODO initialize variable for background Image
-                    borderRadius: BorderRadius.circular(15.0),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          ContactCardIcon(icon: Icons.web,), //TODO initialize variable for web address
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          ContactCardIcon(icon: Icons.phone,), //TODO initialize variable for phone number
-                          ContactCardIcon(icon: Icons.email,), //TODO initialize variable for email address
-                          ContactCardIcon(icon: Icons.message,), //TODO use phone number to send message
-                        ],
-                      ),
-                    ],
-                  ),
+    return SizedBox(
+      height: 250.0,
+      width: 320.0,
+      child: Container(
+        child: Stack(
+          children: [
+            Card(
+              margin: EdgeInsets.only(top: 20.0, left: 20.0,),
+              elevation: 5.0,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              child: Container(
+                height: 180.0,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage('http://media02.hongkiat.com/free-businesscard-templates/10-Front.jpg'),
+                    alignment: Alignment.topCenter,
+                  ), //TODO initialize variable for background Image
+                  borderRadius: BorderRadius.circular(15.0),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 60, left: 20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  Material(
-                    child: CircleAvatar(
-                      child: Icon(Icons.person), //TODO change to image that can be picked or taken
-                      radius: 35.0,
-                    ),
-                    elevation: 5.0,
-                    shape: CircleBorder(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      ContactCardIcon(icon: Icons.phone,), //TODO initialize variable for phone number
+                      ContactCardIcon(icon: Icons.web,), //TODO initialize variable for web address
+                      ContactCardIcon(icon: Icons.email,), //TODO initialize variable for email address
+                      ContactCardIcon(icon: Icons.message,), //TODO use phone number to send message
+                    ],
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Material(
+                  child: CircleAvatar(
+                    child: Icon(Icons.person), //TODO change to image that can be picked or taken
+                    radius: 35.0,
+                  ),
+                  elevation: 5.0,
+                  shape: CircleBorder(),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
