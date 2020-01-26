@@ -14,12 +14,13 @@ class _PortfolioScreenState extends State<PortfolioScreen> with TickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kScaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: kAppThemeColor,
+        backgroundColor: kAlternateAppBarColor,
         title: Text(
           'Portfolio',
           style: TextStyle(
-            color: Colors.white,
+            color: kAppBarTextColor,
           ),
         ),
         centerTitle: true,
@@ -32,7 +33,10 @@ class _PortfolioScreenState extends State<PortfolioScreen> with TickerProviderSt
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                ContactCardView(),
+                Flexible(
+                  child: ContactCardView(
+                    backgroundImage: 'http://media02.hongkiat.com/free-businesscard-templates/10-Front.jpg',
+                )),
                 Flexible(
                   child: SizedBox(
                     height: 200.0,

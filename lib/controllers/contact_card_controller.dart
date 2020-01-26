@@ -1,26 +1,18 @@
 import 'package:flutter/material.dart';
 import 'contact_card_icon.dart';
-
-class ContactCard extends StatelessWidget {
-  ContactCard({this.emailAddress, this.phoneNumber, this.companyName,
-    this.webAddress, this.backgroundImage, this.profileImage});
-
-  final String webAddress;
-  final String companyName;
-  final String emailAddress;
-  final String phoneNumber;
-  final Image backgroundImage;
-  final CircleAvatar profileImage;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
+import 'package:contact_card/models/contact_card.dart';
 
 
 class ContactCardView extends StatelessWidget {
-  //TODO add gesture detectors to icons and move them for better view on Contact Cards Screen
+  ContactCardView({this.backgroundImage, this.webAddress,
+    this.companyName, this.phoneNumber, this.emailAddress});
+
+
+  final String webAddress;
+  final String phoneNumber;
+  final String companyName;
+  final String emailAddress;
+  final String backgroundImage;
 
   @override
   Widget build(BuildContext context) {
@@ -33,16 +25,16 @@ class ContactCardView extends StatelessWidget {
             Card(
               margin: EdgeInsets.only(top: 20.0, left: 20.0,),
               elevation: 5.0,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.0)),
               child: Container(
                 height: 180.0,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage('http://media02.hongkiat.com/free-businesscard-templates/10-Front.jpg'),
+                    image: NetworkImage(backgroundImage),
                     alignment: Alignment.topCenter,
-                  ), //TODO initialize variable for background Image
-                  borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  borderRadius: BorderRadius.circular(4.0),
                 ),
               ),
             ),
@@ -54,10 +46,33 @@ class ContactCardView extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      ContactCardIcon(icon: Icons.phone,), //TODO initialize variable for phone number
-                      ContactCardIcon(icon: Icons.web,), //TODO initialize variable for web address
-                      ContactCardIcon(icon: Icons.email,), //TODO initialize variable for email address
-                      ContactCardIcon(icon: Icons.message,), //TODO use phone number to send message
+                      GestureDetector(
+                        child: ContactCardIcon(
+                          icon: Icons.phone,),
+                        onTap: (){
+                          print(phoneNumber);
+                          },
+                      ),
+                      GestureDetector(
+                        child: ContactCardIcon(
+                          icon: Icons.web,),
+                        onTap: (){
+                          print(webAddress);
+                          },
+                      ),
+                      GestureDetector(
+                        child: ContactCardIcon(
+                          icon: Icons.email,),
+                        onTap: (){
+                          print(emailAddress);
+                          },
+                      ),
+                      GestureDetector(
+                        child: ContactCardIcon(
+                          icon: Icons.message,),
+                        onTap: (){print(phoneNumber);
+                        },
+                      ),
                     ],
                   ),
                 ],
@@ -80,5 +95,42 @@ class ContactCardView extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class ContactCardController {
+  Future<List<ContactCardView>> getContactCards() async {
+    //TODO get contact cards from fireBase utilizing a list of received UUIDs. and remove dummy data
+    List<ContactCardView> receivedContacts = [
+      ContactCardView(
+        webAddress: 'www.business.com',
+        companyName: 'TestCompany',
+        emailAddress: 'testcompany@email.com',
+        phoneNumber: '444-454-4544',
+        backgroundImage: 'https://media.istockphoto.com/vectors/dummy-credit-card-vector-id479514596?s=170667a',
+      ),
+      ContactCardView(
+        webAddress: 'www.hello.com',
+        companyName: 'here we go again',
+        emailAddress: 'email@email.com',
+        phoneNumber: '323-345-5234',
+        backgroundImage: 'https://i.ytimg.com/vi/0WLk9beInNM/maxresdefault.jpg',
+      ),
+      ContactCardView(
+          webAddress: 'www.grammy.com',
+          companyName: 'grammys cookies',
+          emailAddress: 'grammy@email.com',
+          phoneNumber: '366-754-6567',
+          backgroundImage: 'https://ampforwp.com/wp-content/uploads/2018/06/dfp-2x.png'
+      ),
+      ContactCardView(
+          webAddress: 'www.bubble.com',
+          companyName: 'bubble cookies',
+          emailAddress: 'bubble@email.com',
+          phoneNumber: '366-754-2445',
+          backgroundImage: 'http://media02.hongkiat.com/free-businesscard-templates/10-Front.jpg'
+      ),
+    ];
+    return receivedContacts;
   }
 }

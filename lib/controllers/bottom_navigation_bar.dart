@@ -3,6 +3,7 @@ import 'package:contact_card/screens/analytics_screen.dart';
 import 'package:contact_card/screens/portfolio_screen.dart';
 import 'package:contact_card/screens/contact_card_screen.dart';
 import 'package:contact_card/constants.dart';
+import 'package:contact_card/screens/coupons_screen.dart';
 
 
 class CustomBottomNavigationBar extends StatefulWidget {
@@ -42,12 +43,14 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       PortfolioScreen(),
       AnalyticsScreen(),
       ContactCardScreen(),
+      CouponsScreen(),
     ];
 
     final _kBottomNavigationBarItems = [
       BottomNavigationBarItem(icon: Icon(Icons.person), title: Text('Profile')),
       BottomNavigationBarItem(icon: Icon(Icons.show_chart), title: Text('Analytics')),
       BottomNavigationBarItem(icon: Icon(Icons.contacts), title: Text('Cards')),
+      BottomNavigationBarItem(icon: Icon(Icons.content_cut), title: Text('Coupons')),
     ];
     assert(_kBottomNavigationBarItems.length == _kTabPages.length);
 
@@ -57,6 +60,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           PortfolioScreen(),
           AnalyticsScreen(),
           ContactCardScreen(),
+          CouponsScreen(),
         ],
         onPageChanged: onPageChanged,
         controller: _pageController,
