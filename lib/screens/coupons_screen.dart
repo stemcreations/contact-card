@@ -10,10 +10,32 @@ class CouponsScreen extends StatefulWidget {
 class _CouponsScreenState extends State<CouponsScreen> {
 
   List<Widget> contactCoupons = [
-    CouponCard(),
-    CouponCard(),
-    CouponCard(),
-    CouponCard(),
+    CouponCard(
+      companyName: 'Dev Tech Hub',
+      couponCode: '25OFF',
+      couponOffer: '25% OFF',
+      offerDetails: '25% off any item',
+      expirationDate: '02/28/2020',
+    ),
+    CouponCard(
+      companyName: 'Grub Hub',
+      couponCode: '25OFF',
+      couponOffer: '25% OFF',
+      offerDetails: '25% off any item this is a test to see if it overflows I guess it is working but how well does it work',
+      expirationDate: '02/28/2020',
+    ),
+    CouponCard(
+      companyName: 'Hello Dolly',
+      couponCode: '25OFF',
+      couponOffer: '25% OFF',
+      offerDetails: '25% off any item',
+      expirationDate: '02/28/2020',),
+    CouponCard(
+      companyName: 'Lonny Boys',
+      couponCode: '25OFF',
+      couponOffer: '25% OFF',
+      offerDetails: '25% off any item',
+      expirationDate: '02/28/2020',),
   ];
 
   @override
