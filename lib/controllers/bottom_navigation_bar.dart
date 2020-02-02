@@ -70,7 +70,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         width: double.infinity,
         child: BottomNavigationBar(
           unselectedItemColor: Colors.white,
-          backgroundColor: kAppThemeColor,
+          selectedItemColor: kBottomNavigationBarSelectedColor,
+          backgroundColor: kBottomNavigationBarColor,
           items: _kBottomNavigationBarItems,
           currentIndex: _currentTabIndex,
           type: BottomNavigationBarType.fixed,

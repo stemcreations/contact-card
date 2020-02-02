@@ -1,3 +1,4 @@
+import 'package:contact_card/screens/edit_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:contact_card/controllers/contact_card_controller.dart';
 import 'package:contact_card/constants.dart';
@@ -18,7 +19,7 @@ class _PortfolioScreenState extends State<PortfolioScreen> with TickerProviderSt
       appBar: AppBar(
         backgroundColor: kAlternateAppBarColor,
         title: Text(
-          'Portfolio',
+          'Profile',
           style: TextStyle(
             color: kAppBarTextColor,
           ),
@@ -34,9 +35,15 @@ class _PortfolioScreenState extends State<PortfolioScreen> with TickerProviderSt
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Flexible(
-                  child: ContactCardView(
-                    backgroundImage: 'http://media02.hongkiat.com/free-businesscard-templates/10-Front.jpg',
-                )),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => EditProfileScreen()));
+                    },
+                    child: ContactCardView(
+                      backgroundImage: 'http://media02.hongkiat.com/free-businesscard-templates/10-Front.jpg',
+                ),
+                  )),
                 Flexible(
                   child: SizedBox(
                     height: 200.0,

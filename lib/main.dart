@@ -9,9 +9,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Contact Card',
-      theme: ThemeData(
-        primarySwatch: Colors.amber,
-      ),
       home: CustomBottomNavigationBar(),
     );
   }

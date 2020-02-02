@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'contact_card_icon.dart';
-import 'package:contact_card/models/contact_card.dart';
 
 
 class ContactCardView extends StatelessWidget {
   ContactCardView({this.backgroundImage, this.webAddress,
-    this.companyName, this.phoneNumber, this.emailAddress});
+    this.companyName, this.phoneNumber, this.emailAddress,
+    this.avatarIcon = Icons.person, this.isVisible = false});
 
 
   final String webAddress;
@@ -13,6 +13,8 @@ class ContactCardView extends StatelessWidget {
   final String companyName;
   final String emailAddress;
   final String backgroundImage;
+  final IconData avatarIcon;
+  final bool isVisible;
 
   @override
   Widget build(BuildContext context) {
@@ -79,15 +81,27 @@ class ContactCardView extends StatelessWidget {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Material(
                   child: CircleAvatar(
-                    child: Icon(Icons.person), //TODO change to image that can be picked or taken
+                    child: Icon(avatarIcon), //TODO change to image that can be picked or taken
                     radius: 35.0,
                   ),
                   elevation: 5.0,
                   shape: CircleBorder(),
+                ),
+                Visibility(
+                  visible: isVisible,
+                  child: Material(
+                    color: Colors.white30,
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.circular(5.0),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Icon(Icons.edit, color: Colors.black,),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -99,6 +113,8 @@ class ContactCardView extends StatelessWidget {
 }
 
 class ContactCardController {
+
+  // Gets list of received contact cards from fireBase database
   Future<List<ContactCardView>> getContactCards() async {
     //TODO get contact cards from fireBase utilizing a list of received UUIDs. and remove dummy data
     List<ContactCardView> receivedContacts = [
